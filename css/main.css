@@ -1,0 +1,75 @@
+@font-face {
+    font-family: "Gill Sans Bold Italic";
+    src: url('../font/GillSansBoldItalic.otf');
+}
+@font-face {
+    font-family: "Gill Sans Medium";
+    src: url('../font/GillSansMedium.otf');
+}
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --gray: #474e50;
+    --black: #212121;
+    --black2: #292929;
+    --black-semitransparent: rgba(0, 0, 0, .9);
+    --yellow: rgb(252, 226, 5);
+    --yellow2: rgb(253, 210, 15);
+    --green: rgb(58, 211, 83);
+    --green2: rgb(22, 197, 101);
+    --red: rgb(240, 25, 43);
+    --red2: rgb(255, 32, 69);
+    --skyblue: rgb(24, 174, 211);
+    --skyblue2: rgb(25, 160, 201);
+    --shadow: rgba(0, 0, 0, .4);
+    --white: rgb(250, 250, 250);
+    --white2: rgb(218, 218, 218);
+    --white-semiTransparent: rgba(255, 255, 255, .9);
+    /*  */
+    --gap-xxxl: 40px;
+    --gap-xxl: 30px;
+    --gap-xl: 20px;
+    --gap: 10px;
+    --gap-sm: 5px;
+    /*  */
+    --animation-timing: .5s;
+    --animation-timing-sm: .25s;
+}
+/* body & containers */
+html, body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--white);
+}
+.container {
+    width: 70% !important;
+    margin: 100px auto 100px auto;
+    /* padding: 40px 0 80px 0; */
+    display: table;
+}
+/* Text */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins Semibold', sans-serif;
+    font-weight: 500;
+    color: var(--white);
+    margin: 20px 0 10px 0;
+}
+/*  */
+p, pre {
+    font-family: 'Poppins Regular', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 32px;
+    color: var(--black);
+    display: block; /* adding line - testing 18/05/2021 */
+    /* float: left; */ /* deleting line - testing 18/05/2021 */
+    clear: both;
+}
+a {
+    cursor: pointer;
+    transition: all var(--animation-timing-sm) ease-out;
+}
