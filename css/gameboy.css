@@ -21,6 +21,11 @@
     background: rgb(141,141,150);
     background: linear-gradient(-35deg, rgba(141,141,150,1) 0%, rgba(141,141,150,1) 12%, rgba(190,189,196,1) 13%, rgba(190,189,196,1) 50%, rgba(198,197,204,1) 100%);
 }
+.gameboy .detailGroup.top {
+    width: 100%;
+    height: 42px;
+    /* pending */
+}
 /* DisplayGroup */
 .gameboy .displayGroup {
     width: 433px;
@@ -76,7 +81,7 @@
     content: "";
     z-index: 2;
 }
-.gameboy .displayGroup .lcd {
+.gameboy .displayGroup .lcd { /* LCD in stand-by */
     width: 270px;
     height: 248px;
     margin: 0 auto;
@@ -100,9 +105,13 @@
     rgba(138,212,61,1) 74%,
     rgba(138,212,61,1) 100%);
 }
-.gameboy .displayGroup .lcd.animation {
+.gameboy .displayGroup .lcd.animation { /* LCD in stand-by */
     background-size: 1000%;
     animation: run 30s linear infinite;
+}
+.gameboy .displayGroup .lcd.on {
+    background: rgb(138,212,61);
+    box-shadow: none;
 }
 @keyframes run {
     0% {
@@ -114,6 +123,23 @@
     100% {
         background-position-x: 1000%;
     }
+}
+.gameboy .displayGroup .lcd .videoWrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    filter: hue-rotate(57deg);
+}
+.gameboy .displayGroup .lcd .videoWrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    filter: saturate(1) hue-rotate(57deg);
+    transition: opacity var(--animation-timing-sm) ease-out;
+}
+.gameboy .displayGroup .lcd .videoWrapper video.active {
+    opacity: .7;
 }
 .gameboy .displayGroup .battery {
     color: var(--white);
@@ -176,6 +202,54 @@
     border-radius: 100%;
     background: rgb(229,229,231);
     background: linear-gradient(-35deg, rgba(229,229,231,1) 0%, rgba(176,176,182,1) 100%);
+}
+.gameboy .controllerGroup .d-padGroup .wrapper {
+    width: 129px;
+    height: 129px;
+    filter: drop-shadow(0 0 2px rgba(50, 50, 0, 0.5));
+    transform: rotate(45deg);
+    position: absolute;
+    top: 82px;
+    left: 42px;
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background {
+    width: 125px;
+    height: 125px;
+    background: rgb(131,131,131);
+    background: linear-gradient(180deg, rgba(131,131,131,1) 0%, rgba(74,74,74,1) 100%);
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    /* transform: rotate(45deg);
+    position: absolute;
+    top: 80px;
+    left: 45px; */
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background .button {
+    width: 36px;
+    height: 52px;
+    position: absolute;
+    cursor: pointer;
+    transform: rotate(-45deg);
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background .button.UP {
+    top: 5px;
+    left: 13px;
+    width: 36px;
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background .button.DOWN {
+    bottom: 9px;
+    right: 17px;
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background .button.LEFT {
+    top: 76px;
+    left: 5px;
+    width: 52px;
+    height: 36px;
+}
+.gameboy .controllerGroup .d-padGroup .wrapper .background .button.RIGHT {
+    top: 12px;
+    right: 9px;
+    width: 52px;
+    height: 36px;
 }
 .gameboy .controllerGroup .buttonGroup {
     width: 176px;
