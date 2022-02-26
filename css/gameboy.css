@@ -11,7 +11,37 @@
     border-radius: 20px 20px 110px 20px;
     background: rgb(235,235,235);
     background: linear-gradient(-195deg, rgba(235,235,235,1) 0%, rgba(235,235,235,1) 80%, rgba(99,96,106,1) 100%);
+    position: relative;
 }
+/* Gameboy Switch */
+.gameboySwitchWrapper {
+    width: 48px;
+    height: 32px;
+    position: absolute;
+    top: -32px;
+    left: 32px;
+}
+.gameboySwitchWrapper .gameboySwitch {
+    width: 24px;
+    height: 32px;
+    position: relative;
+    background: rgb(141,141,150);
+    border-radius: 5px 5px 0 0;
+    transition: margin var(--animation-timing) ease-in-out;
+}
+.gameboySwitchWrapper .gameboySwitch.powerOn {
+    margin-left: 24px;
+}
+.gameboySwitchWrapper::after {
+    width: 24px;
+    height: 6px;
+    background: rgb(141,141,150);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+}
+/*  */
 .gameboy {
     width: 514px;
     height: 852px;
@@ -156,12 +186,16 @@
     position: absolute;
     top: -26px;
     left: 10px;
-    background: rgb(226,8,8);
-    background: radial-gradient(circle, rgba(226,8,8,1) 0%, rgba(254,0,0,1) 50%, rgba(226,8,8,1) 100%);
+    background: rgb(106,76,76);
+    background: radial-gradient(circle, rgba(106,76,76,1) 0%, rgba(74,74,74,1) 100%);
     border-radius: 100%;
     border: 4px solid var(--black);
     content: "";
     display: block;
+}
+.gameboy .displayGroup .battery.powerOn::before {
+    background: rgb(226,8,8);
+    background: radial-gradient(circle, rgba(226,8,8,1) 0%, rgba(254,0,0,1) 50%, rgba(226,8,8,1) 100%);
 }
 /* Trademark */
 .gameboy .trademark {

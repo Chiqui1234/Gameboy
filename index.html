@@ -13,18 +13,21 @@
     <div class="grid center content">
 
         <div class="gameboyWrapper">
+            <div class="gameboySwitchWrapper">
+                <div id="powerSwitch" class="gameboySwitch" onclick="powerOn()"></div>
+            </div>
         <div class="gameboy">
             <!-- Everything related to the screen will be placed here -->
             <div class="displayGroup">
                 <div class="legend">
                     <span>DOT MATRIX WITH STEREO SOUND</span>
                 </div>
-                <div id="lcd" class="lcd animation">
+                <div id="lcd" class="lcd">
                     <div class="videoWrapper">
                         <video id="video" src="./video/super-mario-land.mp4"></video>
                     </div>
                 </div>
-                <div class="battery">
+                <div id="battery" class="battery">
                     BATTERY
                 </div>
             </div>
@@ -39,8 +42,8 @@
                 <div class="d-padGroup">
                     <div class="wrapper">
                         <div class="background">
-                            <div class="button UP" onclick="volume(+0.05)"></div>
-                            <div class="button DOWN" onclick="volume(-0.05)"></div>
+                            <div class="button UP" onclick="volume(+0.1)"></div>
+                            <div class="button DOWN" onclick="volume(-0.1)"></div>
                             <div class="button LEFT" onclick="seek(-0.5)"></div>
                             <div class="button RIGHT" onclick="seek(+0.5)"></div>
                         </div>
@@ -64,7 +67,7 @@
                         </div>
                     </div>
                     <div class="buttonWrapper START">
-                        <div class="button START" onclick="start()">
+                        <div class="button START" onclick="videoControl()">
                             <div class="background">
                                 <div class="reflect"></div>
                             </div>
