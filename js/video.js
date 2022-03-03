@@ -65,14 +65,15 @@ function videoControl() {
 function volume(value) {
     if(value > 0 && video.volume < 0.9) {
         video.volume += value;
+        console.log(`Volume: ${video.volume}`);
     } 
     else if(value < 0 && video.volume > 0.1) {
         video.volume += value;
+        console.log(`Volume: ${video.volume}`);
     }
     else {
         console.warn(`No se puede cambiar el volúmen, valor aplicado: ${video.volume}.`);
     }
-    console.log(`Volume: ${video.volume}`);
 }
 
 function seek(value) {
