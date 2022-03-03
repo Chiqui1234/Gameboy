@@ -13,13 +13,13 @@ function powerOn() {
 
         setTimeout(function() {
             if(lcd.classList.value.search('animation') == -1)
-            lcd.classList.add('animation');
+                lcd.classList.add('animation');
             console.log(`Added 'animation' class (or already added)`);
         }, 150); // 150ms: almost in perfect sync with 500ms 'animation-timing' (CSS Variable)
     } else { // If OFF, only a reflection is presented
         if(lcd.classList.value.search('animation'))
             lcd.classList.remove('animation');
-        console.log(`Removed 'animation' class (or already added)`);
+        console.log(`Removed 'animation' class (or already deleted)`);
 
         // Pause and dissapear the video! 😁
         video.pause();
@@ -33,7 +33,7 @@ function powerOn() {
 }
 
 function videoControl() {
-    const standby = lcd.classList.value.search('animation') > 0 ? true : false;
+    const standby = lcd.classList.value.search('animation') >= 0 ? true : false;
     
     if(standby && on) {
         // lcd.classList.add('on');
@@ -64,17 +64,15 @@ function videoControl() {
 
 function volume(value) {
     if(value > 0 && video.volume < 0.9) {
-        console.log(`Volume: ${video.volume}`);
         video.volume += value;
     } 
     else if(value < 0 && video.volume > 0.1) {
-        console.log(`Volume: ${video.volume}`);
         video.volume += value;
     }
     else {
         console.warn(`No se puede cambiar el volúmen, valor aplicado: ${video.volume}.`);
     }
-        
+    console.log(`Volume: ${video.volume}`);
 }
 
 function seek(value) {
